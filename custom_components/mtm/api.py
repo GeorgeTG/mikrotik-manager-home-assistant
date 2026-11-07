@@ -145,8 +145,12 @@ class MtmClient:
             if line.startswith("data:"):
                 data.append(line[5:].lstrip(" "))
             elif not line and data:
-                value = json.loads("\n".join(data))
+                payload = "\n".join(data)
                 data = []
+                # The MCP server primes SSE with an empty data event before JSON-RPC.
+                if not payload.strip():
+                    continue
+                value = json.loads(payload)
                 if isinstance(value, dict) and value.get("id") == request_id:
                     return value
         raise MtmConnectionError("MCP response ended before the result")
@@ -174,7 +178,7 @@ class MtmClient:
             {
                 "protocolVersion": PROTOCOL_VERSION,
                 "capabilities": {},
-                "clientInfo": {"name": "mtm-home-assistant", "version": "0.1.0"},
+                "clientInfo": {"name": "mtm-home-assistant", "version": "0.1.1"},
             },
         )
         if not isinstance(result, dict) or result.get("protocolVersion") != PROTOCOL_VERSION:

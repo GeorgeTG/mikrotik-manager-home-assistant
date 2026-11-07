@@ -1,0 +1,64 @@
+{
+  "title": "MikroTik Manager",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Σύνδεση στο MikroTik Manager",
+        "description": "Προσθέστε το URL του server σας. Θα ανοίξει το MikroTik Manager στον browser για σύνδεση και έγκριση πρόσβασης μόνο για ανάγνωση. Το Home Assistant εμφανίζει μόνο τις συσκευές στις οποίες έχει πρόσβαση ο λογαριασμός σας.",
+        "data": {
+          "server_url": "URL server"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Επανασύνδεση MikroTik Manager",
+        "description": "Συνδεθείτε ξανά για να επαναφέρετε την πρόσβαση ανάγνωσης στις συσκευές σας."
+      }
+    },
+    "error": {
+      "invalid_url": "Προσθέστε ένα HTTPS URL χωρίς διαδρομή, διαπιστευτήρια, παραμέτρους ή τμήμα μετά το #.",
+      "unsupported_server": "Ο server δεν υποστηρίζει την απαιτούμενη σύνδεση OAuth του MikroTik Manager.",
+      "cannot_connect": "Η σύνδεση στον server απέτυχε. Ελέγξτε το URL και δοκιμάστε ξανά."
+    },
+    "abort": {
+      "read_only_required": "Επιλέξτε πρόσβαση μόνο για ανάγνωση στη σελίδα εξουσιοδότησης του MikroTik Manager. Η ευρύτερη πρόσβαση απορρίφθηκε.",
+      "already_configured": "Αυτή η σύνδεση έχει ήδη προστεθεί.",
+      "unique_id_mismatch": "Η εξουσιοδότηση δεν αντιστοιχεί στην υπάρχουσα σύνδεση.",
+      "missing_configuration": "Προσθέστε το URL του MikroTik Manager για να ξεκινήσετε.",
+      "authorize_url_timeout": "Ο server δεν απάντησε εγκαίρως κατά την έναρξη της εξουσιοδότησης.",
+      "authorize_rejected": "Η εξουσιοδότηση ακυρώθηκε. Μπορείτε να ξεκινήσετε ξανά τη σύνδεση.",
+      "no_url_available": "Δεν βρέθηκε διεύθυνση επιστροφής στο Home Assistant. [Οδηγίες]({docs_url}).",
+      "oauth_unauthorized": "Η εξουσιοδότηση έληξε ή ανακλήθηκε. Συνδεθείτε ξανά.",
+      "oauth_failed": "Η εξουσιοδότηση δεν ολοκληρώθηκε. Ελέγξτε τη σύνδεση στον server και δοκιμάστε ξανά.",
+      "user_rejected_authorize": "Η εξουσιοδότηση ακυρώθηκε. Μπορείτε να ξεκινήσετε ξανά τη σύνδεση.",
+      "oauth_error": "Ο server επέστρεψε μη έγκυρη απάντηση εξουσιοδότησης.",
+      "oauth_timeout": "Ο server δεν απάντησε εγκαίρως κατά την ολοκλήρωση της σύνδεσης."
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "healthy": {
+        "name": "Υγιής"
+      }
+    },
+    "sensor": {
+      "last_handshake_age": {
+        "name": "Χρόνος από την τελευταία χειραψία"
+      },
+      "routeros_version": {
+        "name": "Έκδοση RouterOS"
+      },
+      "state": {
+        "name": "Κατάσταση",
+        "state": {
+          "enroll_failed": "Αποτυχία εγγραφής",
+          "enrolling": "Εγγράφεται",
+          "offline": "Εκτός σύνδεσης",
+          "degraded": "Υποβαθμισμένη",
+          "created": "Δημιουργήθηκε",
+          "online": "Σε σύνδεση",
+          "retired": "Αποσυρμένη"
+        }
+      }
+    }
+  }
+}

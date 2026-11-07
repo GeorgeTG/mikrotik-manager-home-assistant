@@ -1,0 +1,16 @@
+{
+  "domain": "mtm",
+  "name": "MikroTik Manager",
+  "categories": [
+    "computers_network.routers_network"
+  ],
+  "codeowners": [
+    "@GeorgeTG"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/GeorgeTG/mikrotik-manager-home-assistant#readme",
+  "integration_type": "hub",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/GeorgeTG/mikrotik-manager-home-assistant/issues",
+  "version": "0.1.0"
+}

@@ -1,0 +1,64 @@
+{
+  "title": "MikroTik Manager",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to MikroTik Manager",
+        "description": "Enter your server URL. Your browser will open MikroTik Manager to sign in and authorize read-only access. Home Assistant can display only devices your account can access.",
+        "data": {
+          "server_url": "Server URL"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Reconnect MikroTik Manager",
+        "description": "Sign in again to restore read-only access to your devices."
+      }
+    },
+    "error": {
+      "invalid_url": "Enter an HTTPS server URL without a path, credentials, query or fragment.",
+      "unsupported_server": "This server does not support the required MikroTik Manager OAuth connection.",
+      "cannot_connect": "Could not connect to the server. Check its URL and try again."
+    },
+    "abort": {
+      "read_only_required": "Select read-only access on the MikroTik Manager authorization page. The broader connection was refused.",
+      "already_configured": "This connection is already configured.",
+      "unique_id_mismatch": "The authorization does not match the existing connection.",
+      "missing_configuration": "Enter the MikroTik Manager server URL to begin.",
+      "authorize_url_timeout": "The server did not respond in time while starting authorization.",
+      "authorize_rejected": "Authorization was cancelled. You can start the connection again.",
+      "no_url_available": "Home Assistant has no available callback URL. See the [instructions]({docs_url}).",
+      "oauth_unauthorized": "Authorization has expired or was revoked. Sign in again.",
+      "oauth_failed": "Authorization could not be completed. Check the server connection and try again.",
+      "user_rejected_authorize": "Authorization was cancelled. You can start the connection again.",
+      "oauth_error": "The server returned an invalid authorization response.",
+      "oauth_timeout": "The server did not respond in time while completing authorization."
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "healthy": {
+        "name": "Healthy"
+      }
+    },
+    "sensor": {
+      "last_handshake_age": {
+        "name": "Last handshake age"
+      },
+      "routeros_version": {
+        "name": "RouterOS version"
+      },
+      "state": {
+        "name": "State",
+        "state": {
+          "enroll_failed": "Enrollment failed",
+          "enrolling": "Enrolling",
+          "offline": "Offline",
+          "degraded": "Degraded",
+          "created": "Created",
+          "online": "Online",
+          "retired": "Retired"
+        }
+      }
+    }
+  }
+}
